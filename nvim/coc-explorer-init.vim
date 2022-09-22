@@ -1,6 +1,10 @@
+" https://github.com/weirongxu/coc-explorer#usage
 nmap <space>e <Cmd>CocCommand explorer<CR>
+
+" https://github.com/weirongxu/coc-explorer#example
 nmap <Leader>er <Cmd>call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])<CR>
 
+" https://github.com/weirongxu/coc-explorer#presets
 let g:coc_explorer_global_presets = {
 \   '.vim': {
 \     'root-uri': '~/.vim',
