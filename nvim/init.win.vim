@@ -1,8 +1,9 @@
 let g:python3_host_prog = $LOCALAPPDATA . '\nvim\neovim\Scripts\python.exe'
 
 set number
-set expandtab
 set wrapscan
+set expandtab
+set tabstop=4 softtabstop=4
 set smartindent
 set shiftwidth=4
 set wildmenu
