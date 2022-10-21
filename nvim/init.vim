@@ -12,17 +12,22 @@ set wildmenu
 set wildmode=longest,full
 set cursorline
 
-
 " Required:
 set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 
-" Required:
-if dein#load_state('$HOME/.cache/dein')
-  call dein#begin('$HOME/.cache/dein')
+let s:dein_dir = $HOME . '/.cache/dein'
+let s:rc_dir = $HOME . '/.config/nvim'
 
-  let s:toml_dir  = $HOME . '/.config/nvim' 
-  let s:toml      = s:toml_dir . '/dein.toml'
-  let s:lazy_toml = s:toml_dir . '/dein_lazy.toml'
+" Required:
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+
+  if !isdirectory(s:rc_dir)
+    call mkdir(s:rc_dir, 'p')
+  endif
+
+  let s:toml      = s:rc_dir . '/dein.toml'
+  "let s:lazy_toml = s:rc_dir . '/dein_lazy.toml'
 
   call dein#load_toml(s:toml,      {'lazy': 0})
   "call dein#load_toml(s:lazy_toml, {'lazy': 1})
@@ -48,8 +53,6 @@ if len(s:removed_plugins) > 0
 endif
 
 " coc.nvim Setting
-inoremap <silent><expr> <c-space> coc#refresh()
-inoremap <silent><expr> <Tab> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-inoremap <silent><expr> <Esc> coc#pum#visible() ? coc#pum#cancel() : "\<Esc>"
+execute 'source ' . s:rc_dir . '/coc-init.vim'
+execute 'source ' . s:rc_dir . '/coc-explorer-init.vim'
 
