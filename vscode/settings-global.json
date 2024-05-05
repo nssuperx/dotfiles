@@ -13,5 +13,7 @@
     "[makefile]": {
         "editor.insertSpaces": false
     },
-    "editor.stickyScroll.enabled": true
+    "editor.stickyScroll.enabled": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true
 }
